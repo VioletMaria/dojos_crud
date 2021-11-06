@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dojos</title>
 </head>
 <body>
-    <form action="/create" method="post">
-        <label for="name">Name:</label>
-        <input type="text" name="name" placeholder="Your Dojo Here">
-        <input type="submit" value="Add Dojo">
-    </form>
-    <table>
-        <tr>
-            <th>Dojos</th>
-        </tr>
-        {% for d in dojos %}
-        <tr>
-            <td>
-                <a href="/dojo/{{ d.id }}">{{ d.name }}</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="/new">Add Ninja</a>
-</body>
-</html>
+    <div class="content">
+        <div class="dojo-form">
+            <form action="/create" method="post">
+                <label class="label" for="name">Name:</label>
+                <input class="text-field" type="text" name="name" placeholder="Your Dojo Here">
+                <input class="submit-dojo" type="submit" value="Add Dojo">
+            </form>
+        </div>
+        <div class="locations">
+            <table>
+                <tr>
+                    <th>Dojos</th>
+                </tr>
+                {% for d in dojos %}
+                <tr>
+                    <td>
+                        <a href="/dojo/{{ d.id }}">{{ d.name }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="new-ninja">
+                <a href="/new">Add Ninja</a>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
